@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    initial done.
-    <main-tab-bar/>
+    home
   </div>
 </template>
 
@@ -10,13 +9,5 @@
 
   export default {
     name: 'Home',
-    components: {
-      MainTabBar,
-    },
-    data() {
-      return {
-        active: 'home'
-      }
-    },
   }
 </script>

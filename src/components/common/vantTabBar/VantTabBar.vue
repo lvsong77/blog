@@ -1,6 +1,6 @@
 <template>
   <van-tabbar v-model="active">
-    <van-tabbar-item  v-for="tab in tabs" :key="tab.name" :icon="tab.icon">
+    <van-tabbar-item  v-for="tab in tabs" :key="tab.name" :icon="tab.icon" :to="tab.name" :replace="true">
       {{ tab.name }}
     </van-tabbar-item >
   </van-tabbar>

@@ -18,7 +18,7 @@
             icon: 'home-o',
           },
           {
-            name: 'project',
+            name: 'projects',
             icon: 'apps-o',
           },
           {
