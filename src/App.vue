@@ -3,7 +3,7 @@
     <keep-alive>
       <router-view/>
     </keep-alive>
-    <main-tab-bar/>
+    <main-tab-bar v-if="$route.meta.showTab"/>
   </div>
 </template>
 

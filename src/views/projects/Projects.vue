@@ -1,7 +1,7 @@
 <template>
   <div class="projects">
-    <!-- <project-item :v-for="projects" :projects="projects" :key="index"/> -->
-    <project-item v-for="(item, index) in projects" :key="index">{{item}}</project-item>
+    <project-item v-for="(item, index) in projects" :item="item" @click.native="goto(item.path)" :key="index"/>
+    <router-view/>
   </div>
 </template>
 
@@ -18,14 +18,27 @@
         projects: [
           {
             title: '网易云音乐',
-            imgPath: '/src/assets/img/neteaseCloudMusic.jpg'
+            imgPath: require('@/assets/img/neteaseCloudMusic.jpg'),
+            path: '/projects/cloud_music'
           }
         ]
+      }
+    },
+    methods: {
+      goto(path) {
+        this.$router.push(path)
       }
     },
   }
 </script>
 
-<style>
-
+<style scoped>
+  .projects {
+    width: 100vw;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 </style>

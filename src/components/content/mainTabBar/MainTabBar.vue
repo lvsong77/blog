@@ -14,16 +14,19 @@
       return {
         tabs: [
           {
-            name: 'Home',
+            name: 'home',
             icon: 'home-o',
+            text: 'Home',
           },
           {
-            name: 'Projects',
+            name: 'projects',
             icon: 'apps-o',
+            text: 'Projects',
           },
           {
-            name: 'About',
+            name: 'about',
             icon: 'user-o',
+            text: 'About',
           },
         ],
       }

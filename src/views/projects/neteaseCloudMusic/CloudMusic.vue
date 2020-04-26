@@ -1,10 +1,12 @@
 <template>
-  
+  <div>
+    cloudMusic
+  </div>
 </template>
 
 <script>
   export default {
-    name: 'NeteaseCloadMusic'
+    name: 'cloudMusic'
   }
 </script>
 
