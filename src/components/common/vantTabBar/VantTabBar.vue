@@ -1,6 +1,6 @@
 <template>
   <van-tabbar v-model="active">
-    <van-tabbar-item  v-for="tab in tabs" :key="tab.name" :icon="tab.icon" :to="tab.name" :replace="true">
+    <van-tabbar-item  v-for="tab in tabs" :key="tab.name" :icon="tab.icon" :to="tab.name" replace>
       {{ tab.name }}
     </van-tabbar-item >
   </van-tabbar>
@@ -10,14 +10,15 @@
   export default {
     name: 'VantTabBar',
     props: {
-      active: {
-        type: String,
-        default: 'index'
-      },
       tabs: {
         type: Array,
         default: []
       },
+    },
+    data() {
+      return {
+        active: 0
+      }
     },
   }
 </script>

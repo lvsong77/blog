@@ -15,11 +15,6 @@
     components: {
       MainTabBar,
     },
-    data() {
-      return {
-        active: 'home'
-      }
-    },
   }
 </script>
 
