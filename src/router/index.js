@@ -1,12 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+// blog主界面路由
 const Home = () => import('views/home/Home')
-
 const Projects = () => import('views/projects/Projects')
-const CloudMusic = () => import('views/projects/neteaseCloudMusic/CloudMusic')
-
 const About = () => import('views/about/About')
+
+// project界面路由
+const ProjectList = () => import('views/projects/childComps/projectList/ProjectList')
+// 云音乐
+const CloudMusic = () => import('views/projects/neteaseCloudMusic/CloudMusic')
 
 Vue.use(VueRouter)
 
@@ -29,6 +32,13 @@ const routes = [
       showTab: true
     },
     children: [
+      {
+        path: '',
+        component: ProjectList,
+        meta: {
+          showTab: true
+        }
+      },
       {
         path: '/projects/cloud_music',
         component: CloudMusic,

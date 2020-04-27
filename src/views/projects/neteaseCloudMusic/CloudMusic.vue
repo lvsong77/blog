@@ -1,12 +1,17 @@
 <template>
   <div>
-    cloudMusic
+    <nav-bar></nav-bar>
   </div>
 </template>
 
 <script>
+  import NavBar from './components/content/navBar/NavBar'
+
   export default {
-    name: 'cloudMusic'
+    name: 'cloudMusic',
+    components: {
+      NavBar,
+    },
   }
 </script>
 
