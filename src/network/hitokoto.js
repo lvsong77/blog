@@ -1,8 +1,7 @@
-import { request } from './request'
-import { hitokotoPath } from './baseURL'
+import { hitokotoRequest } from './request'
 
 export function getHitokotoData() {
-  return request({
-    url: hitokotoPath
+  return hitokotoRequest({
+    
   })
 }

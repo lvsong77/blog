@@ -1,2 +1,2 @@
-export let cloudMusicPath = 'https://api.imjad.cn/cloudmusic/'
+export let cloudMusicPath = 'https://www.mxnzp.com/api'
 export let hitokotoPath = 'https://api.imjad.cn/hitokoto/'

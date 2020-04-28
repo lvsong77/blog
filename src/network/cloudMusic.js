@@ -1,22 +1,12 @@
-import { request } from './request'
-import { cloudMusicPath } from './baseURL'
+import { cloudMusicRequest } from './request'
+import { cloudMusicData } from './authorization'
 
 export function getCloudMusicData() {
-  return request({
-    url: cloudMusicPath,
+  return cloudMusicRequest({
+    url: '/music/order/list',
     params: {
-      type: 'song',
-      id: 521493845
-    }
+      app_id: cloudMusicData.app_id,
+      app_secret: cloudMusicData.app_secret
+    },
   })
 }
-
-// export function getHomeGoods(type, page) {
-//   return request({
-//     url: '/home/data',
-//     params: {
-//       type,
-//       page
-//     }
-//   })
-// }

@@ -9,7 +9,7 @@ const About = () => import('views/about/About')
 // project界面路由
 const ProjectList = () => import('views/projects/childComps/projectList/ProjectList')
 // 云音乐
-const CloudMusic = () => import('views/projects/neteaseCloudMusic/CloudMusic')
+const CloudMusic = () => import('views/projects/cloudMusic/CloudMusic')
 
 Vue.use(VueRouter)
 

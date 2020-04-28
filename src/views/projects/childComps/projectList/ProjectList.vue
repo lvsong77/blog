@@ -16,7 +16,7 @@
       return {
         projects: [
           {
-            title: '网易云音乐',
+            title: '云音乐',
             imgPath: require('@/assets/img/neteaseCloudMusic.jpg'),
             path: '/projects/cloud_music'
           }
