@@ -2,6 +2,7 @@ import axios from 'axios'
 import { hitokotoPath, cloudMusicPath } from './baseURL'
 import { cloudMusicData } from './authorization'
 
+// hitokoto请求实例
 export function hitokotoRequest(config) {
   // 1. 创建axios的实例
   const instance = axios.create({
@@ -28,6 +29,7 @@ export function hitokotoRequest(config) {
   return instance(config)
 }
 
+// cloudMusic请求实例
 export function cloudMusicRequest(config) {
   // 1. 创建axios的实例
   const instance = axios.create({
@@ -38,8 +40,8 @@ export function cloudMusicRequest(config) {
   // 2. axios的拦截器
   // 2.1 请求拦截
   instance.interceptors.request.use(config => {
-    config.params.app_id = cloudMusicData.app_id
-    config.params.app_secret = cloudMusicData.app_secret
+    // config.params.app_id = cloudMusicData.app_id
+    // config.params.app_secret = cloudMusicData.app_secret
 
     return config
   }, err => {

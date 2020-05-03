@@ -18,7 +18,7 @@
           {
             title: '云音乐',
             imgPath: require('@/assets/img/neteaseCloudMusic.jpg'),
-            path: '/projects/cloud_music'
+            path: '/projects/cloud_music/login'
           }
         ]
       }

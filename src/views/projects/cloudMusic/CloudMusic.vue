@@ -1,28 +1,14 @@
 <template>
   <div>
-
+    <router-view/>
   </div>
 </template>
 
 <script>
-  import { getCloudMusicData } from 'network/cloudMusic'
+  import CMLogin from './views/login/Login'
 
   export default {
     name: 'cloudMusic',
-    components: {
-
-    },
-    data() {
-      return {
-        data: ''
-      }
-    },
-    mounted() {
-      getCloudMusicData().then(res => {
-        console.log(res);
-        
-      })
-    },
   }
 </script>
 
