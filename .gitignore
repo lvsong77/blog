@@ -21,4 +21,6 @@ yarn-error.log*
 *.sw?
 
 # authorizaion data
-authorization.js
+src/network/authorization.js
+# baseURL
+src/network/baseURL.js
