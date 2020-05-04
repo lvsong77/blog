@@ -18,13 +18,14 @@
           {
             title: '云音乐',
             imgPath: require('@/assets/img/neteaseCloudMusic.jpg'),
-            path: '/projects/cloud_music/login'
+            path: localStorage.token ? '/projects/cloud_music/discovery' : '/projects/cloud_music/login'
           }
         ]
       }
     },
     methods: {
       goto(path) {
+        console.log("goto -> path", path)
         this.$router.push(path)
       }
     },

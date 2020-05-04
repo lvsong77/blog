@@ -44,6 +44,10 @@ const routes = [
         path: 'cloud_music',
         component: CloudMusic,
         children: [
+          // {
+          //   path: '',
+          //   redirect: 'login'
+          // },
           {
             path: 'login',
             component: CMLogin
