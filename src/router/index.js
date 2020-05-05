@@ -11,6 +11,7 @@ const ProjectList = () => import('views/projects/childComps/projectList/ProjectL
 // 云音乐
 const CloudMusic = () => import('views/projects/cloudMusic/CloudMusic')
 const CMLogin = () => import('views/projects/cloudMusic/views/login/Login')
+const CMDiscovery = () => import('views/projects/cloudMusic/views/discovery/Discovery')
 
 Vue.use(VueRouter)
 
@@ -51,6 +52,10 @@ const routes = [
           {
             path: 'login',
             component: CMLogin
+          },
+          {
+            path: 'discovery',
+            component: CMDiscovery
           }
         ]
       }

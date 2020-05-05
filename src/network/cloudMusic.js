@@ -6,3 +6,17 @@ export function cloudMusicLogin(params) {
     params
   })
 }
+
+export function getBanner(params) {
+  return cloudMusicRequest({
+    url: '/banner',
+    params
+  })
+}
+
+export function getPlayList(params) {
+  return cloudMusicRequest({
+    url: '/user/playlist',
+    params
+  })
+}

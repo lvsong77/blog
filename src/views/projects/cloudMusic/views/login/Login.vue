@@ -48,6 +48,8 @@
           localStorage.account = JSON.stringify(res.account)
           localStorage.profile = JSON.stringify(res.profile)
           localStorage.token = JSON.stringify(res.token)
+
+          this.$router.replace('/projects/cloud_music/discovery')
         })
       }
     },
