@@ -8,6 +8,13 @@ export function cloudMusicLogin(params) {
   })
 }
 
+// 获取登录状态
+export function getLoginStatus() {
+  return cloudMusicRequest({
+    url: '/login/status'
+  })
+}
+
 // 获取发现页banner
 export function getBanner(params) {
   return cloudMusicRequest({
@@ -15,6 +22,19 @@ export function getBanner(params) {
     params
   })
 }
+
+// 获取每日推荐歌曲
+export function getDailyRecommendSongs(params) {
+  return cloudMusicRequest({
+    url: '/recommend/songs',
+    params
+  })
+}
+
+
+
+
+
 
 // 获取播放列表
 export function getPlayList(params) {

@@ -35,6 +35,7 @@ export function cloudMusicRequest(config) {
   const instance = axios.create({
     baseURL: cloudMusicPath,
     timeout: 5000,
+    withCredentials: true
   })
 
   // 2. axios的拦截器

@@ -18,10 +18,11 @@
           {
             icon: 'icon-RectangleCopy',
             text: '每日推荐',
+            path: 'daily_songs'
           },
           {
             icon: 'icon-SongListgedan',
-            text: '歌单',
+            text: '歌单',            
           },
           {
             icon: 'icon-PCbofangye_paihangbang',

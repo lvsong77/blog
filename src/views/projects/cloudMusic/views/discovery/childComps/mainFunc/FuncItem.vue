@@ -1,11 +1,12 @@
+
 <template>
-  <div class="funcItem">
+  <a class="funcItem" :href="func.path">
     <div class="icon">
       <i class="iconfont" :class="func.icon"></i>
       <span>{{ date }}</span>
     </div>
     <span class="title">{{ func.text }}</span>
-  </div>
+  </a>
 </template>
 
 <script>

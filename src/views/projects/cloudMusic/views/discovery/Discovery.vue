@@ -16,7 +16,7 @@
       MainFunc
     },
     mounted () {
-      ;
+
     },
   }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main-nav-bar/>
+    <main-nav-bar v-if="showNavBar"/>
     <keep-alive>
       <router-view/>
     </keep-alive>
@@ -14,6 +14,18 @@
     name: 'cloudMusic',
     components: {
       MainNavBar,
+    },
+    computed: {
+      showNavBar() {
+        let path = this.$route.fullPath
+        let mainPages = ['mine', 'discovery', 'village', 'video']
+        for (const item of mainPages) {
+          if (path.indexOf(item) !== -1) {
+            return true
+          }
+        }
+        return false
+      }
     },
   }
 </script>

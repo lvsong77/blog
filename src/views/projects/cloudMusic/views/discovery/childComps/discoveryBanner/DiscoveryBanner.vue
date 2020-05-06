@@ -39,7 +39,6 @@
         type
       }
       getBanner(params).then(res => {
-        console.log(res);
         for (const item of res.banners) {
           this.banners.push(item)
         }
