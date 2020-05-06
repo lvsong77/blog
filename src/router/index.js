@@ -11,7 +11,10 @@ const ProjectList = () => import('views/projects/childComps/projectList/ProjectL
 // 云音乐
 const CloudMusic = () => import('views/projects/cloudMusic/CloudMusic')
 const CMLogin = () => import('views/projects/cloudMusic/views/login/Login')
+const CMMine = () => import('views/projects/cloudMusic/views/mine/Mine')
 const CMDiscovery = () => import('views/projects/cloudMusic/views/discovery/Discovery')
+const CMVillage = () => import('views/projects/cloudMusic/views/village/Village')
+const CMVideo = () => import('views/projects/cloudMusic/views/video/Video')
 
 Vue.use(VueRouter)
 
@@ -54,8 +57,20 @@ const routes = [
             component: CMLogin
           },
           {
+            path: 'mine',
+            component: CMMine
+          },
+          {
             path: 'discovery',
             component: CMDiscovery
+          },
+          {
+            path: 'village',
+            component: CMVillage
+          },
+          {
+            path: 'video',
+            component: CMVideo
           }
         ]
       }

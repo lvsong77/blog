@@ -1,48 +1,28 @@
 <template>
-  <div>
-    discovery
+  <div class="discovery">
+    <discovery-banner/>
+    <main-func/>
   </div>
 </template>
 
 <script>
-  import { getBanner, getPlayList } from 'network/cloudMusic'
+  import DiscoveryBanner from './childComps/discoveryBanner/DiscoveryBanner'
+  import MainFunc from './childComps/mainFunc/MainFunc'
 
   export default {
     name: 'Discovery',
-    data() {
-      return {
-        list: []
-      }
+    components: {
+      DiscoveryBanner,
+      MainFunc
     },
     mounted () {
-      // 获取banner
-      let type = 0
-      let params = {
-        type
-      }
-      getBanner(params).then(res => {
-        console.log(res);
-        
-      })
-
-
-
-
-
-      // 获取歌单列表
-      // let account = JSON.parse(localStorage.account);
-      // let uid = account.id
-
-      // let params = {
-      //   uid
-      // }
-      // getPlayList(params).then(res => {
-      //   console.log(res)
-      // })
+      ;
     },
   }
 </script>
 
-<style>
-
+<style scoped>
+  .discovery {
+    background-color: #FFF;
+  }
 </style>
