@@ -1,4 +1,4 @@
-export let judgeCurrentDivice = function() {
+export function judgeCurrentDivice() {
   var u = navigator.userAgent;
   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
@@ -24,5 +24,15 @@ export let judgeCurrentDivice = function() {
   }
   if (isPC) {
     return 'pc'
+  }
+}
+
+export function debounce(func, delay) {
+  let timer = null
+  return function(...args) {
+    if (timer) clearTimeout(timer)
+    timer = setTimeout(() => {
+      func.apply(this, args)
+    }, delay)
   }
 }

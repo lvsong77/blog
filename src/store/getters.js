@@ -1,8 +1,14 @@
 export default {
-  cartLength(state) {
-    return state.cartList.length
+  historyPlayList(state) {
+    return state.historyPlayList
   },
-  cartList(state) {
-    return state.cartList
+  prevPlayList(state) {
+    return state.prevPlayList
+  },
+  playList(state) {
+    return state.playList
+  },
+  currentMusic(state) {
+    return state.currentMusic
   }
 }

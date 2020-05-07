@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "5651571",
+      "name": "圆点菜单",
+      "font_class": "yuandiancaidan",
+      "unicode": "e6aa",
+      "unicode_decimal": 59050
+    },
+    {
+      "icon_id": "11463948",
+      "name": "问号",
+      "font_class": "wenhao",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "1199326",
+      "name": "back",
+      "font_class": "back",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
       "icon_id": "1847259",
       "name": "PC播放页_排行榜",
       "font_class": "PCbofangye_paihangbang",

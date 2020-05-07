@@ -8,7 +8,10 @@ import getters from './getters'
 Vue.use(Vuex)
 
 const state = {
-  
+  historyPlayList: {},
+  prevPlayList: {},
+  playList: {},
+  currentMusic: {}
 }
 const store = new Vuex.Store({
   state,

@@ -31,6 +31,14 @@ export function getDailyRecommendSongs(params) {
   })
 }
 
+// 获取音乐url
+export function getSongUrl(params) {
+  return cloudMusicRequest({
+    url: '/song/url',
+    params
+  })
+}
+
 
 
 

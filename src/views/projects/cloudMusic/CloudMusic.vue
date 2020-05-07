@@ -4,16 +4,19 @@
     <keep-alive>
       <router-view/>
     </keep-alive>
+    <music-play-bar/>
   </div>
 </template>
 
 <script>
   import MainNavBar from './components/content/mainNavBar/MainNavBar'
+  import MusicPlayBar from './components/content/musicPlayBar/MusicPlayBar'
 
   export default {
     name: 'cloudMusic',
     components: {
       MainNavBar,
+      MusicPlayBar
     },
     computed: {
       showNavBar() {
