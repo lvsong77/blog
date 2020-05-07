@@ -1,8 +1,18 @@
 <template>
   <div class="bar">
-    <audio :src="songInfo.url" ref="audio" @canplay="playMusic"></audio>
-    <!-- <button @click="playMusic">play</button>
-    <button @click="pauseMusic">pause</button> -->
+    <audio ref="audio" @canplay="playMusic"></audio>
+    <div class="leftPart">
+      <img class="cover" :src="songInfo.cover" alt="">
+      <div class="info">
+        <p class="title">{{ songInfo.name }}</p>
+        <p class="artist">{{ songInfo.artist }}</p>
+      </div>
+    </div>
+    <div class="rightPart">
+      <div class="playPauseButton">
+
+      </div>
+    </div>
   </div>
 </template>
 
@@ -15,7 +25,11 @@
     name: 'MusicPlayBar',
     data() {
       return {
-        songInfo: {}
+        songInfo: {
+          cover: '',
+          name: '',
+          artist: ''
+        },
       }
     },
     computed: {
@@ -24,8 +38,6 @@
     watch: {
       currentMusic(newValue, oldValue) {
         this.switchMusic(newValue)
-        console.log(this.$refs.audio);
-        
       }
     },
     methods: {
@@ -43,8 +55,8 @@
         this.songInfo.artist = artist.join('/')
         this.songInfo.url = song.url
 
-        // 播放歌曲
-        // this.playMusic()
+        // 动态给audio赋值
+        this.$refs.audio.src = song.url
       },
       playMusic() {
         let audio = this.$refs.audio
@@ -67,5 +79,58 @@
     background-color: #FAFAFA;
     height: 46px;
     border-top: 1px solid #E0E0E0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .leftPart {
+    width: 80vw;
+    display: flex;
+    align-items: center;
+  }
+
+  .cover {
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    margin: 0 1vw;
+    object-fit: cover;
+  }
+
+  .title {
+    font-size: 0.8rem;
+    color: #424242;
+    margin-bottom: 5px;
+  }
+
+  .artist {
+    font-size: 0.6rem;
+    color: #757575;
+  }
+
+  .title, .artist {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 60vw;
+  }
+
+  .rightPart {
+    width: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .playPauseButton {
+    width: 7vw;
+    height: 7vw;
+    border: 1px solid #BDBDBD;
+    border-radius: 50%;
+  }
+
+  .progress {
+
   }
 </style>

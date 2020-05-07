@@ -92,4 +92,8 @@
     align-items: center;
     justify-content: flex-end;
   }
+
+  .icon-yuandiancaidan {
+    color: #BDBDBD;
+  }
 </style>

@@ -4,7 +4,7 @@
     <keep-alive>
       <router-view/>
     </keep-alive>
-    <music-play-bar/>
+    <music-play-bar v-show="showPlayBar"/>
   </div>
 </template>
 
@@ -28,6 +28,13 @@
           }
         }
         return false
+      },
+      showPlayBar() {
+        if (this.$store.getters.currentMusic.id) {
+          return true
+        } else {
+          return false
+        }
       }
     },
   }

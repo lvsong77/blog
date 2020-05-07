@@ -7,7 +7,7 @@ import store from './store'
 import 'assets/iconfont/iconfont.css'
 
 // 按需引入vant组件
-import { Icon, Tabbar, TabbarItem, Form, Field, Button, Swipe, SwipeItem, NavBar } from 'vant'
+import { Icon, Tabbar, TabbarItem, Form, Field, Button, Swipe, SwipeItem, NavBar, Circle } from 'vant'
 
 Vue.use(Icon);
 Vue.use(Tabbar);
@@ -18,6 +18,7 @@ Vue.use(Button);
 Vue.use(Swipe);
 Vue.use(SwipeItem);
 Vue.use(NavBar);
+Vue.use(Circle);
 
 Vue.config.productionTip = false
 
