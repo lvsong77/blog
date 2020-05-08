@@ -40,20 +40,20 @@
       }
     },
     methods: {
-      // checkPhone(phone) {
-      //   let isMobilePhone = /^(13[0-9]|14[5-9]|15[012356789]|166|17[0-8]|18[0-9]|19[1-9])[0-9]{8}$/;
-      //   let isFixMob = /^0?1[3|4|5|8][0-9]\d{8}$/;
+      checkPhone(phone) {
+        let isMobilePhone = /^(13[0-9]|14[5-9]|15[012356789]|166|17[0-8]|18[0-9]|19[1-9])[0-9]{8}$/;
+        let isFixMob = /^0?1[3|4|5|8][0-9]\d{8}$/;
 
-      //   if (isFixMob.test(phone) || isMobilePhone.test(phone)) {
-      //     return true;
-      //   } else {
-      //     return false;
-      //   }
-      // },
+        if (isFixMob.test(phone) || isMobilePhone.test(phone)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
       login(values) {
         let phone = this.phone
         let password = this.password
-
+        
         let params = { phone, password }
         cloudMusicLogin(params).then(res => {
           console.log(res);
