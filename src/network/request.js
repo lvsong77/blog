@@ -41,8 +41,7 @@ export function cloudMusicRequest(config) {
   // 2. axios的拦截器
   // 2.1 请求拦截
   instance.interceptors.request.use(config => {
-    // config.params.app_id = cloudMusicData.app_id
-    // config.params.app_secret = cloudMusicData.app_secret
+    config.params.withCredentials = true
 
     return config
   }, err => {

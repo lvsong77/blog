@@ -7,9 +7,10 @@ import store from './store'
 import 'assets/iconfont/iconfont.css'
 
 // 按需引入vant组件
-import { Icon, Tabbar, TabbarItem, Form, Field, Button, Swipe, SwipeItem, NavBar, Circle } from 'vant'
+import { Icon, Toast, Tabbar, TabbarItem, Form, Field, Button, Swipe, SwipeItem, NavBar, Circle } from 'vant'
 
 Vue.use(Icon);
+Vue.use(Toast);
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(Form);

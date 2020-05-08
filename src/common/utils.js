@@ -1,3 +1,16 @@
+// 判断手机号是否正确
+export function checkPhone(phone) {
+  let isMobilePhone = /^(13[0-9]|14[5-9]|15[012356789]|166|17[0-8]|18[0-9]|19[1-9])[0-9]{8}$/;
+  let isFixMob = /^0?1[3|4|5|8][0-9]\d{8}$/;
+
+  if (isFixMob.test(phone) || isMobilePhone.test(phone)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// 获取当前设备型号
 export function judgeCurrentDivice() {
   var u = navigator.userAgent;
   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
@@ -27,6 +40,7 @@ export function judgeCurrentDivice() {
   }
 }
 
+// 防抖
 export function debounce(func, delay) {
   let timer = null
   return function(...args) {

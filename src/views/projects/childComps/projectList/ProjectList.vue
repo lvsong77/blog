@@ -7,6 +7,8 @@
 <script>
   import ProjectItem from '../projectItem/ProjectItem'
 
+  import { getLoginStatus } from 'network/cloudMusic'
+
   export default {
     name: 'ProjectsList',
     components: {
@@ -18,15 +20,26 @@
           {
             title: '云音乐',
             imgPath: require('@/assets/img/neteaseCloudMusic.jpg'),
-            path: localStorage.token ? '/projects/cloud_music/discovery' : '/projects/cloud_music/login'
+            path: 'discoveryOrlogin'
           }
         ]
       }
     },
     methods: {
       goto(path) {
-        console.log("goto -> path", path)
-        this.$router.push(path)
+        if (path === 'discoveryOrlogin') {
+          getLoginStatus().then(res => {
+            let path
+            // if (res.code === 200) {
+            //   path = '/projects/cloud_music/discovery'
+            // } else {
+              path = '/projects/cloud_music/login'
+            // }
+            this.$router.push(path)
+          })
+        } else {
+          this.$router.push(path)
+        }
       }
     },
   }

@@ -14,7 +14,7 @@
     },
     mounted() {
       getHitokotoData().then(res => {
-        this.sentence = res
+        this.sentence = res.hitokoto
       })
     },
   }
