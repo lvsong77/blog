@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { hitokotoPath, cloudMusicPath } from './baseURL'
-import { cloudMusicData } from './authorization'
 
 // hitokoto请求实例
 export function hitokotoRequest(config) {
@@ -35,13 +34,12 @@ export function cloudMusicRequest(config) {
   const instance = axios.create({
     baseURL: cloudMusicPath,
     timeout: 5000,
-    withCredentials: true
   })
 
   // 2. axios的拦截器
   // 2.1 请求拦截
   instance.interceptors.request.use(config => {
-    config.params.withCredentials = true
+    // config.params.withCredentials = true
 
     return config
   }, err => {
