@@ -9,8 +9,8 @@
   import DailySongsNavBar from './DailySongsNavBar'
   import PlayList from 'views/projects/cloudMusic/components/content/playList/PlayList'
 
-  import { getLoginStatus, getDailyRecommendSongs } from 'network/cloudMusic'
-
+  import { getDailyRecommendSongs } from 'network/cloudMusic'
+import axios from 'axios'
   export default {
     name: 'DailySongs',
     components: {

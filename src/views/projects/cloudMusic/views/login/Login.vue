@@ -63,8 +63,8 @@
               position: 'bottom',
               duration: 1000
             })
+            return
           }
-
           if (res.code === 200) {
             this.$toast({
               message: '登陆成功',

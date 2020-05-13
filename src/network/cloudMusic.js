@@ -24,10 +24,9 @@ export function getBanner(params) {
 }
 
 // 获取每日推荐歌曲
-export function getDailyRecommendSongs(params) {
+export function getDailyRecommendSongs() {
   return cloudMusicRequest({
     url: '/recommend/songs',
-    params
   })
 }
 
