@@ -1,7 +1,8 @@
 <template>
   <div class="listItem">
     <div class="leftPart">
-      <img class="cover" :src="song.album.picUrl" alt="" @load="imgLoad">
+      <img v-if="showCover" class="cover" :src="song.album.picUrl" alt="" @load="imgLoad">
+      <i v-else class="iconfont icon-laba cover"></i>
       <div class="info">
         <p class="title">{{ song.name }}</p>
         <p class="artistAndAlbum">{{ artistAndAlbum }}</p>
@@ -14,6 +15,8 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+
   export default {
     name: 'PlayListItem',
     props: {
@@ -23,6 +26,14 @@
       },
     },
     computed: {
+      ...mapGetters(['currentMusic']),
+      showCover() {
+        if (this.currentMusic.id !== this.song.id) {
+          return true
+        } else {
+          return false
+        }
+      },
       artistAndAlbum() {
         let artist = []
 
@@ -95,5 +106,11 @@
 
   .icon-yuandiancaidan {
     color: #BDBDBD;
+  }
+
+  .icon-laba {
+    text-align: center;
+    line-height: 12vw;
+    color: #E53935;
   }
 </style>

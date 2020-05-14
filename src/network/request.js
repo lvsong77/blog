@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { hitokotoPath, cloudMusicPath } from './baseURL'
 
-axios.defaults.withCredentials=true
+// axios.defaults.withCredentials=true
 
 // hitokoto请求实例
 export function hitokotoRequest(config) {
@@ -37,6 +37,8 @@ export function cloudMusicRequest(config) {
     baseURL: cloudMusicPath,
     timeout: 5000,
   })
+
+  instance.defaults.withCredentials = true
 
   // 2. axios的拦截器
   // 2.1 请求拦截

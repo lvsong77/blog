@@ -50,3 +50,8 @@ export function debounce(func, delay) {
     }, delay)
   }
 }
+
+// 获取随机整数：从0开始，不包括max
+export function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}

@@ -1,6 +1,9 @@
 <template>
   <div class="bar">
-    <audio ref="audio" @canplay="playMusic"></audio>
+    <audio ref="audio"
+           @canplay="playMusic"
+           @timeupdate="updateTime"
+           @ended="songEnd"></audio>
     <div class="leftPart">
       <img class="cover" :src="songInfo.cover" alt="">
       <div class="info">
@@ -9,8 +12,13 @@
       </div>
     </div>
     <div class="rightPart">
-      <div class="playPauseButton">
-
+      <div class="playPauseButton" @click="palyOrPause">
+        <van-circle v-model="progress"
+                    rate="0"
+                    size="100%"
+                    color="#E53935"
+                    layer-color="#424242"/>
+        <i class="iconfont button" :class="buttonStatus"></i>
       </div>
     </div>
   </div>
@@ -19,7 +27,9 @@
 <script>
   import { getSongUrl } from 'network/cloudMusic'
 
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
+
+  import { getRandomInt } from 'common/utils'
 
   export default {
     name: 'MusicPlayBar',
@@ -30,10 +40,16 @@
           name: '',
           artist: ''
         },
+        progress: 0,
+        playing: false,
+        switchMethod: 0, // 0: 列表播放, 1: 随机播放, 2: 单曲循环
       }
     },
     computed: {
-      ...mapGetters(['currentMusic']),
+      ...mapGetters(['currentMusic', 'playList']),
+      buttonStatus() {
+        return this.playing ? 'icon-zanting' : 'icon-bofangsanjiaoxing'
+      }
     },
     watch: {
       currentMusic(newValue, oldValue) {
@@ -41,6 +57,7 @@
       }
     },
     methods: {
+      ...mapActions(['changeMusic']),
       switchMusic(song) {
         // 处理作者信息
         let artist = []
@@ -57,14 +74,55 @@
 
         // 动态给audio赋值
         this.$refs.audio.src = song.url
+
+        this.playing = true
       },
       playMusic() {
         let audio = this.$refs.audio
         audio.play()
+        this.playing = true
       },
       pauseMusic() {
         let audio = this.$refs.audio
         audio.pause()
+        this.playing = false
+      },
+      palyOrPause() {
+        if (this.playing) {
+          this.pauseMusic()
+        } else {
+          this.playMusic()
+        }
+      },
+      updateTime(e) {
+        let currentTime = e.target.currentTime
+        let duration = e.target.duration
+        this.progress = currentTime / duration * 100
+      },
+      songEnd() {
+        let song
+
+        if (this.switchMethod === 0) {
+          for (let i = 0; i < this.playList.list.length; i++) {
+            const item = this.playList.list[i];
+            if (item.id === this.currentMusic.id) {
+              song = this.playList.list[i + 1]
+              break
+            }
+          }
+
+          this.changeMusic(song)
+        } else if (this.switchMethod === 1) {
+          let listLength = this.playList.list.length
+          let randomIndex = getRandomInt(listLength)
+          song = this.playList.list[randomIndex]
+
+          this.changeMusic(song)
+        } else if (this.switchMethod === 2) {
+          this.playMusic()
+        }
+
+        
       }
     },
   }
@@ -126,11 +184,28 @@
   .playPauseButton {
     width: 7vw;
     height: 7vw;
-    border: 1px solid #BDBDBD;
-    border-radius: 50%;
+    position: relative;
+    right: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .progress {
+  .button {
+    position: absolute;
+  }
 
+  .icon-bofangsanjiaoxing {
+    color: #424242;
+    left: 50%;
+    top: 50%;
+    transform: translate(-40%, -55%);
+  }
+
+  .icon-zanting {
+    color: #E53935;
+    left: 50%;
+    top: 50%;
+    transform: translate(-45%, -55%);
   }
 </style>

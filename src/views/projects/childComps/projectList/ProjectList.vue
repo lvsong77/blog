@@ -29,12 +29,12 @@
       goto(path) {
         if (path === 'discoveryOrlogin') {
           getLoginStatus().then(res => {
-            // let path
-            // if (res.code === 200) {
-            //   path = '/projects/cloud_music/discovery'
-            // } else {
+            let path
+            if (res.code === 200) {
+              path = '/projects/cloud_music/discovery'
+            } else {
               path = '/projects/cloud_music/login'
-            // }
+            }
             this.$router.push(path)
           })
         } else {
