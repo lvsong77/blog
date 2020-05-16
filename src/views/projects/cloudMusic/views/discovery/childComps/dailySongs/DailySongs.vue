@@ -1,7 +1,7 @@
 <template>
   <div>
     <daily-songs-nav-bar/>
-    <play-list :list="list"/>
+    <play-list :list="list" :class="playListClass"/>
   </div>
 </template>
 
@@ -10,7 +10,7 @@
   import PlayList from 'views/projects/cloudMusic/components/content/playList/PlayList'
 
   import { getDailyRecommendSongs } from 'network/cloudMusic'
-import axios from 'axios'
+
   export default {
     name: 'DailySongs',
     components: {
@@ -22,6 +22,15 @@ import axios from 'axios'
         list: []
       }
     },
+    computed: {
+      playListClass() {
+        if (this.$store.getters.currentMusic.id) {
+          return 'hasPlayBar'
+        } else {
+          return 'noPlayBar'
+        }
+      }
+    },
     mounted () {
       getDailyRecommendSongs().then(res => {
         console.log(res);
@@ -31,6 +40,11 @@ import axios from 'axios'
   }
 </script>
 
-<style>
-
+<style scoped>
+  .noPlayBar {
+    height: calc(100vh - 70px)
+  }
+  .hasPlayBar {
+    height: calc(100vh - 110px)
+  }
 </style>

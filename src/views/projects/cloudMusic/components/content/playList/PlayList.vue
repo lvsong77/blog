@@ -76,7 +76,5 @@
 </script>
 
 <style scoped>
-  .content {
-    height: calc(100vh - 110px)
-  }
+
 </style>
