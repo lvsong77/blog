@@ -1,14 +1,20 @@
 <template>
-  <scroll class="content"
-          ref="scroll"
-          :probe-type="3"
-          :pull-up-load="true">
-    <play-list-item v-for="(song, index) in list"
-                    :song="song"
-                    :key="index"
-                    @imgLoad="imgLoad"
-                    @click.native="clickListItem(song)"/>
-  </scroll>
+  <div class="playList">
+    <div class="playAll">
+      <i class="iconfont icon-bofang"></i>
+      <span>播放全部</span>
+    </div>
+    <scroll class="content"
+            ref="scroll"
+            :probe-type="3"
+            :pull-up-load="true">
+      <play-list-item v-for="(song, index) in list"
+                      :song="song"
+                      :key="index"
+                      @imgLoad="imgLoad"
+                      @click.native="clickListItem(song)"/>
+    </scroll>
+  </div>
 </template>
 
 <script>
@@ -76,5 +82,17 @@
 </script>
 
 <style scoped>
-
+  .playList {
+    background-color: #fff;
+  }
+  .playAll {
+    margin: 3.2vw;
+    display: flex;
+    align-items: center;
+    color: #424242;
+  }
+  .playAll i {
+    margin-right: 1.5vw;
+    font-size: 150%;
+  }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="dailySongs">
     <daily-songs-nav-bar/>
     <play-list :list="list" :class="playListClass"/>
   </div>
@@ -41,6 +41,9 @@
 </script>
 
 <style scoped>
+  .dailySongs {
+    background-color: #fff;
+  }
   .noPlayBar {
     height: calc(100vh - 70px)
   }
